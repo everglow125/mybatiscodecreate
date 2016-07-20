@@ -1,6 +1,6 @@
 ﻿namespace JavaCodeCreate
 {
-    partial class Form1
+    partial class MyBatis
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyBatis));
             this.label1 = new System.Windows.Forms.Label();
             this.cbxDbType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,6 +72,9 @@
             this.cbxTmp = new System.Windows.Forms.CheckBox();
             this.btnSaveCfg = new System.Windows.Forms.Button();
             this.btnCreateFile = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtXMLPath = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -377,7 +381,7 @@
             // 
             // btnJarFile
             // 
-            this.btnJarFile.Location = new System.Drawing.Point(428, 540);
+            this.btnJarFile.Location = new System.Drawing.Point(677, 539);
             this.btnJarFile.Name = "btnJarFile";
             this.btnJarFile.Size = new System.Drawing.Size(103, 27);
             this.btnJarFile.TabIndex = 20;
@@ -389,7 +393,7 @@
             // 
             this.txtJarPath.Location = new System.Drawing.Point(110, 543);
             this.txtJarPath.Name = "txtJarPath";
-            this.txtJarPath.Size = new System.Drawing.Size(295, 21);
+            this.txtJarPath.Size = new System.Drawing.Size(544, 21);
             this.txtJarPath.TabIndex = 19;
             // 
             // label12
@@ -405,7 +409,7 @@
             // 
             this.txtTmpPath.Location = new System.Drawing.Point(349, 579);
             this.txtTmpPath.Name = "txtTmpPath";
-            this.txtTmpPath.Size = new System.Drawing.Size(295, 21);
+            this.txtTmpPath.Size = new System.Drawing.Size(305, 21);
             this.txtTmpPath.TabIndex = 24;
             // 
             // label13
@@ -436,7 +440,7 @@
             // cbxTmp
             // 
             this.cbxTmp.AutoSize = true;
-            this.cbxTmp.Location = new System.Drawing.Point(660, 581);
+            this.cbxTmp.Location = new System.Drawing.Point(676, 583);
             this.cbxTmp.Name = "cbxTmp";
             this.cbxTmp.Size = new System.Drawing.Size(96, 16);
             this.cbxTmp.TabIndex = 25;
@@ -445,7 +449,7 @@
             // 
             // btnSaveCfg
             // 
-            this.btnSaveCfg.Location = new System.Drawing.Point(428, 615);
+            this.btnSaveCfg.Location = new System.Drawing.Point(549, 615);
             this.btnSaveCfg.Name = "btnSaveCfg";
             this.btnSaveCfg.Size = new System.Drawing.Size(103, 27);
             this.btnSaveCfg.TabIndex = 26;
@@ -455,7 +459,7 @@
             // 
             // btnCreateFile
             // 
-            this.btnCreateFile.Location = new System.Drawing.Point(603, 615);
+            this.btnCreateFile.Location = new System.Drawing.Point(676, 615);
             this.btnCreateFile.Name = "btnCreateFile";
             this.btnCreateFile.Size = new System.Drawing.Size(103, 27);
             this.btnCreateFile.TabIndex = 27;
@@ -463,11 +467,39 @@
             this.btnCreateFile.UseVisualStyleBackColor = true;
             this.btnCreateFile.Click += new System.EventHandler(this.btnCreateFile_Click);
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(412, 615);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 27);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "选择路径";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // txtXMLPath
+            // 
+            this.txtXMLPath.Location = new System.Drawing.Point(66, 619);
+            this.txtXMLPath.Name = "txtXMLPath";
+            this.txtXMLPath.Size = new System.Drawing.Size(323, 21);
+            this.txtXMLPath.TabIndex = 29;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(7, 619);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(47, 12);
+            this.label15.TabIndex = 28;
+            this.label15.Text = "XML地址";
+            // 
+            // MyBatis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 654);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtXMLPath);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.btnCreateFile);
             this.Controls.Add(this.btnSaveCfg);
             this.Controls.Add(this.cbxTmp);
@@ -496,8 +528,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbxDbType);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "MyBatis";
+            this.Text = "MyBatis代码生成";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -554,6 +587,9 @@
         private System.Windows.Forms.CheckBox cbxTmp;
         private System.Windows.Forms.Button btnSaveCfg;
         private System.Windows.Forms.Button btnCreateFile;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtXMLPath;
+        private System.Windows.Forms.Label label15;
     }
 }
 

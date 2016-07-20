@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace JavaCodeCreate
 {
-    public partial class Form1 : Form
+    public partial class MyBatis : Form
     {
-        public Form1()
+        public MyBatis()
         {
             InitializeComponent();
             InitForm();
@@ -28,7 +28,7 @@ namespace JavaCodeCreate
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -68,7 +68,19 @@ namespace JavaCodeCreate
 
         private void btnCreateFile_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process p = new System.Diagnostics.Process();
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardInput = true;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.CreateNoWindow = false;
+            p.Start();//启动程序  
+            p.StandardInput.WriteLine(@"d:");
+            p.StandardInput.WriteLine(@"cd D:\generator");
+            p.StandardInput.WriteLine(@"java -jar mybatis-generator-core-1.3.1.jar -configfile generator.xml -overwrite");
+            p.StandardInput.WriteLine("exit");
+            string sOutput = p.StandardOutput.ReadToEnd();
+            MessageBox.Show(sOutput);
         }
     }
 }

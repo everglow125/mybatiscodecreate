@@ -10,3 +10,10 @@ F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.pdb
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.exe.config
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.exe
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.pdb
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.exe
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.pdb
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\MySql.Data.dll
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csprojResolveAssemblyReference.cache
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Properties.Resources.resources
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csproj.GenerateResource.Cache
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.MyBatis.resources
