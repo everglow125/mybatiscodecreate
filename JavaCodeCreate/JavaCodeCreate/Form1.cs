@@ -29,9 +29,19 @@ namespace JavaCodeCreate
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            IDbConnect db = new SqlServerConnect();
+            IDbConnect db = null;
+            switch (this.cbxDbType.SelectedItem.ToString())
+            {
+                case "MySql": db = new MysqlConnect(); break;
+                case "Oracle": db = new SqlServerConnect(); break;
+                case "Sql Server": db = new SqlServerConnect(); break;
+            }
+
             string conn = db.GetConnectStr(this.txtServiceAddress.Text, this.txtAccount.Text, this.txtPassword.Text, "");
             DataTable dbs = db.QueryDatabases(conn);
+            this.cbxDbName.DataSource = dbs;
+            this.cbxDbName.ValueMember = "database";
+            this.cbxDbName.DisplayMember = "database";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -66,7 +76,29 @@ namespace JavaCodeCreate
 
         private void btnSaveCfg_Click(object sender, EventArgs e)
         {
+            DbConfig config = new DbConfig();
+            config.Account = this.txtAccount.Text.Trim();
+            config.DaoFilePath = this.txtDaoPath.Text.Trim();
+            config.DaoPackage = this.txtDaoPg.Text.Trim();
+            config.DbName = this.cbxDbName.SelectedItem.ToString().Trim();
+            // config.DbNameList = this.cbxDbName.Items;
+            config.DbType = this.cbxDbType.SelectedItem.ToString().Trim();
+            config.MappingFilePath = this.txtMapPath.Text.Trim();
+            config.MappingPackage = this.txtMapPg.Text.Trim();
+            config.ModelFilePath = this.txtModelPath.Text.Trim();
+            config.ModelPackage = this.txtModelPg.Text.Trim();
+            config.Password = this.txtPassword.Text.Trim();
+            config.Service = this.txtServiceAddress.Text.Trim();
+            config.SqlJarPath = this.txtJarPath.Text.Trim();
+            //  config.TableList = this.lbxTables.Items;
+            config.TableMappings = this.rtxtTablesMap.Text.Trim();
+            config.TempletFilePath = this.txtTmpPath.Text.Trim();
+            config.TempletPackage = this.txtTmpPg.Text.Trim();
+            config.XMLPath = this.txtXMLPath.Text.Trim();
+            config.TempletChecked = this.cbxTmp.Checked;
 
+
+            //序列化config为json保存在项目根目录下
         }
 
         private void btnCreateFile_Click(object sender, EventArgs e)

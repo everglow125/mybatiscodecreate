@@ -13,7 +13,7 @@ namespace JavaCodeCreate.DBConnect
 
         public DataTable QueryDatabases(string conn)
         {
-            string sql = "select [name] from [sysdatabases] order by [name]";
+            string sql = "select [database] from [sysdatabases] order by [name]";
             return ExecuteDataTable(conn, sql);
         }
 

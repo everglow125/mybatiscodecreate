@@ -17,3 +17,13 @@ F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.cspr
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Properties.Resources.resources
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csproj.GenerateResource.Cache
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.MyBatis.resources
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.exe.config
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.exe
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.pdb
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.exe
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.pdb
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\MySql.Data.dll
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csprojResolveAssemblyReference.cache
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.MyBatis.resources
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Properties.Resources.resources
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csproj.GenerateResource.Cache
