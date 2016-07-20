@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JavaCodeCreate.DBConnect;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,7 +29,9 @@ namespace JavaCodeCreate
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-
+            IDbConnect db = new SqlServerConnect();
+            string conn = db.GetConnectStr(this.txtServiceAddress.Text, this.txtAccount.Text, this.txtPassword.Text, "");
+            DataTable dbs = db.QueryDatabases(conn);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
