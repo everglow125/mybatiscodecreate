@@ -1,0 +1,9 @@
+F:\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.exe.config
+F:\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.exe
+F:\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.pdb
+F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csprojResolveAssemblyReference.cache
+F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Form1.resources
+F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Properties.Resources.resources
+F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csproj.GenerateResource.Cache
+F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.exe
+F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.pdb
