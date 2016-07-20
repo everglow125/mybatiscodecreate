@@ -7,3 +7,6 @@ F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Properties.Resources.r
 F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csproj.GenerateResource.Cache
 F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.exe
 F:\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.pdb
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\JavaCodeCreate.exe.config
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.exe
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.pdb
