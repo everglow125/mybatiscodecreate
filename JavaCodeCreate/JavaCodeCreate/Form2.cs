@@ -329,7 +329,6 @@ namespace JavaCodeCreate
         {
             string result = "";
             FolderBrowserDialog path = new FolderBrowserDialog();
-            path.SelectedPath = SysPath;
             path.ShowDialog();
             result = path.SelectedPath;
             return result;
