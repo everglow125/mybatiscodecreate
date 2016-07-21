@@ -73,6 +73,7 @@
     <Compile Include="DBConnect\IDbConnect.cs" />
     <Compile Include="DBConnect\MysqlConnect.cs" />
     <Compile Include="DBConnect\SqlServerConnect.cs" />
+    <Compile Include="EnvironmentVarUtil.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

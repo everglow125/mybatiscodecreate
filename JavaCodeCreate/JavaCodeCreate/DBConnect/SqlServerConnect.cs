@@ -13,13 +13,13 @@ namespace JavaCodeCreate.DBConnect
 
         public List<string> QueryDatabases(string conn)
         {
-            string sql = "select [database] from [sysdatabases] order by [name]";
+            string sql = "select [name] from [sysdatabases] order by [name]";
             return ExecuteDataTable(conn, sql).ToStringList();
         }
 
         public List<string> QueryDataTables(string conn)
         {
-            string sql = "select [database] from [sysdatabases] order by [name]";
+            string sql = "SELECT  name FROM  sysobjects WHERE   xtype = 'U' ORDER BY name;";
             return ExecuteDataTable(conn, sql).ToStringList();
         }
 
