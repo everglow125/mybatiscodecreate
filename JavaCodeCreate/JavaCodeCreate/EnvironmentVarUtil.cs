@@ -9,9 +9,11 @@ namespace JavaCodeCreate
 {
     public class EnvironmentVarUtil
     {
-        public static void GetAllValues()
+        //CLASSPATH
+        public static IDictionary GetAllValues()
         {
-            var temp = System.Environment.GetEnvironmentVariables(EnvironmentVariableTarget.Machine);
+            return System.Environment.GetEnvironmentVariables(EnvironmentVariableTarget.Machine);
+
         }
         public static string GetValue(string key)
         {

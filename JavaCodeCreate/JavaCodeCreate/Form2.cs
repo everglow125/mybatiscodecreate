@@ -41,6 +41,7 @@ namespace JavaCodeCreate
             }
             SqlJar = this.txtSqlJar.Text.Trim();
             GeneratorJar = this.txtGeneratorJar.Text.Trim();
+
         }
 
         static string SysPath = "";
@@ -269,6 +270,32 @@ namespace JavaCodeCreate
             }
         }
 
+        private void AddSqlserverJar()
+        {
+            var items = EnvironmentVarUtil.GetAllValues();
+
+            var sqlJar = SysPath + "\\jar";
+            var sqlTarget = "C:\\sqljdbc4";
+            var sqlJarName = "sqljdbc4.jar";
+            CopyFile(sqlJar, sqlTarget, sqlJarName);
+            string value = EnvironmentVarUtil.GetValue("CLASSPATH");
+            if (!value.EndsWith(";"))
+                value = value + ";";
+            value = value.Replace(EnvironmentVarUtil.GetValue("JAVA_HOME"), "%JAVA_HOME%");
+            if (!value.Contains(sqlTarget + "\\" + sqlJarName))
+                EnvironmentVarUtil.SetValue("CLASSPATH", value + sqlTarget + "\\" + sqlJarName + ";");
+            var jdkHome = EnvironmentVarUtil.GetValue("JAVA_HOME").Trim() + @"\jre\lib\ext";
+            CopyFile(jdkHome, sqlTarget, sqlJarName);
+        }
+
+        private void CopyFile(string source, string target, string fileName)
+        {
+            if (!Directory.Exists(target))
+                Directory.CreateDirectory(target);
+            if (!File.Exists(target + "\\" + fileName))
+                File.Copy(source + "\\" + fileName, target + "\\" + fileName);
+        }
+
         private void CoverFile(string oldPath, string newPath)
         {
             if (oldPath.Trim() == newPath.Trim())
@@ -374,17 +401,34 @@ namespace JavaCodeCreate
 
         private void CreateGeneratorXml()
         {
+
+            var dbconfig = GetDbConfig();
+            string driverClass = "";
+            string dblink = "";
+            switch (this.cbxDbType.SelectedItem.ToString())
+            {
+                case "MySql":
+                    driverClass = "com.mysql.jdbc.Driver";
+                    dblink = "jdbc:mysql://" + dbconfig.Service + ":" + (String.IsNullOrEmpty(dbconfig.Port) ? "3306" : dbconfig.Port) + "/" + dbconfig.DbName; break;
+                case "Oracle":
+                    driverClass = "com.mysql.jdbc.Driver"; break;
+                case "Sql Server":
+                    driverClass = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+                    dblink = "jdbc:sqlserver://" + dbconfig.Service + ":" + (String.IsNullOrEmpty(dbconfig.Port) ? "1143" : dbconfig.Port) + ";DatabaseName=" + dbconfig.DbName;
+                    break;
+            }
+
             string tableTemp = "<table tableName=\"{0}\" domainObjectName=\"{1}\" enableCountByExample=\"false\" enableUpdateByExample=\"false\" enableDeleteByExample=\"false\" enableSelectByExample=\"false\" selectByExampleQueryId=\"false\" />";
             StringBuilder sbTables = new StringBuilder();
             var tabMaps = GetTableMap();
             foreach (var item in tabMaps)
                 sbTables.AppendFormat(tableTemp, item.Key, item.Value);
-            var dbconfig = GetDbConfig();
+
             StringBuilder sbstream = new StringBuilder();
             sbstream.Append(LoadTemplet());
             sbstream.Replace("$sqljar$", dbconfig.SqlJarPath);
-            sbstream.Replace("$driverClass$", "com.mysql.jdbc.Driver");
-            sbstream.Replace("$dblink$", "jdbc:mysql://" + dbconfig.Service + ":" + (String.IsNullOrEmpty(dbconfig.Port) ? "3306" : dbconfig.Port) + "/" + dbconfig.DbName);
+            sbstream.Replace("$driverClass$", driverClass);
+            sbstream.Replace("$dblink$", dblink);
             sbstream.Replace("$username$", dbconfig.Account);
             sbstream.Replace("$password$", dbconfig.Password);
             sbstream.Replace("$modelpackage$", dbconfig.Package + "." + dbconfig.Model);
@@ -404,6 +448,8 @@ namespace JavaCodeCreate
             return ReadFile(directory, fileName);
         }
 
+
+
         private string ReadFile(string directory, string fileName)
         {
             string result = "";
@@ -421,9 +467,6 @@ namespace JavaCodeCreate
             using (StreamWriter sw = new StreamWriter(directory + "\\" + fileName))
                 sw.Write(content);
         }
-
-
-
 
         private Dictionary<string, string> GetTableMap()
         {

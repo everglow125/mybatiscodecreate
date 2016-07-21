@@ -6,21 +6,21 @@
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
         </commentGenerator>
-         <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/mybook" userId="root" password="123456"> 
+         <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver" connectionURL="jdbc:sqlserver://192.168.9.22:1143;DatabaseName=SCF" userId="sa" password="Gd123"> 
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
-        <javaModelGenerator targetPackage="hehe.com.test.model" targetProject="D:\MyBatisCodes">
+        <javaModelGenerator targetPackage="test.json.model" targetProject="D:\MyBatisCodes">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
-        <sqlMapGenerator targetPackage="hehe.com.test.mapping" targetProject="D:\MyBatisCodes">
+        <sqlMapGenerator targetPackage="test.json.mapping" targetProject="D:\MyBatisCodes">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
-        <javaClientGenerator type="XMLMAPPER" targetPackage="hehe.com.test.dao" targetProject="D:\MyBatisCodes">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="test.json.dao" targetProject="D:\MyBatisCodes">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
-		<table tableName="authorinfo" domainObjectName="Authorinfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /><table tableName="bookinfo" domainObjectName="Bookinfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /><table tableName="orderinfo" domainObjectName="Orderinfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /><table tableName="product" domainObjectName="Product" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="LoanApply" domainObjectName="Loanapply" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
     </context>
 </generatorConfiguration>
