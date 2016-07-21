@@ -75,6 +75,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txtXMLPath = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.txtPort = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnAddAll = new System.Windows.Forms.Button();
+            this.btnClearn = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -100,7 +105,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 22);
+            this.label2.Location = new System.Drawing.Point(31, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 2;
@@ -108,22 +113,22 @@
             // 
             // txtAccount
             // 
-            this.txtAccount.Location = new System.Drawing.Point(268, 18);
+            this.txtAccount.Location = new System.Drawing.Point(66, 55);
             this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(166, 21);
+            this.txtAccount.Size = new System.Drawing.Size(121, 21);
             this.txtAccount.TabIndex = 3;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(478, 18);
+            this.txtPassword.Location = new System.Drawing.Point(233, 55);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(174, 21);
+            this.txtPassword.Size = new System.Drawing.Size(134, 21);
             this.txtPassword.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(443, 22);
+            this.label3.Location = new System.Drawing.Point(198, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 4;
@@ -158,15 +163,15 @@
             // 
             // txtServiceAddress
             // 
-            this.txtServiceAddress.Location = new System.Drawing.Point(83, 54);
+            this.txtServiceAddress.Location = new System.Drawing.Point(292, 18);
             this.txtServiceAddress.Name = "txtServiceAddress";
-            this.txtServiceAddress.Size = new System.Drawing.Size(285, 21);
+            this.txtServiceAddress.Size = new System.Drawing.Size(189, 21);
             this.txtServiceAddress.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 57);
+            this.label5.Location = new System.Drawing.Point(221, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 9;
@@ -189,6 +194,7 @@
             this.lbxTables.ItemHeight = 12;
             this.lbxTables.Location = new System.Drawing.Point(12, 90);
             this.lbxTables.Name = "lbxTables";
+            this.lbxTables.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbxTables.Size = new System.Drawing.Size(239, 268);
             this.lbxTables.TabIndex = 12;
             // 
@@ -196,18 +202,17 @@
             // 
             this.rtxtTablesMap.Location = new System.Drawing.Point(372, 90);
             this.rtxtTablesMap.Name = "rtxtTablesMap";
-            this.rtxtTablesMap.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
             this.rtxtTablesMap.Size = new System.Drawing.Size(411, 268);
             this.rtxtTablesMap.TabIndex = 13;
             this.rtxtTablesMap.Text = "";
             // 
             // btnAddTable
             // 
-            this.btnAddTable.Location = new System.Drawing.Point(268, 201);
+            this.btnAddTable.Location = new System.Drawing.Point(277, 103);
             this.btnAddTable.Name = "btnAddTable";
             this.btnAddTable.Size = new System.Drawing.Size(75, 23);
             this.btnAddTable.TabIndex = 14;
-            this.btnAddTable.Text = "=>";
+            this.btnAddTable.Text = "添加选中";
             this.btnAddTable.UseVisualStyleBackColor = true;
             this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
@@ -459,11 +464,11 @@
             // 
             // btnCreateFile
             // 
-            this.btnCreateFile.Location = new System.Drawing.Point(676, 615);
+            this.btnCreateFile.Location = new System.Drawing.Point(818, 612);
             this.btnCreateFile.Name = "btnCreateFile";
             this.btnCreateFile.Size = new System.Drawing.Size(103, 27);
             this.btnCreateFile.TabIndex = 27;
-            this.btnCreateFile.Text = "生成实体文件";
+            this.btnCreateFile.Text = "执行CMD";
             this.btnCreateFile.UseVisualStyleBackColor = true;
             this.btnCreateFile.Click += new System.EventHandler(this.btnCreateFile_Click);
             // 
@@ -475,6 +480,7 @@
             this.button1.TabIndex = 30;
             this.button1.Text = "选择路径";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtXMLPath
             // 
@@ -492,11 +498,62 @@
             this.label15.TabIndex = 28;
             this.label15.Text = "XML地址";
             // 
+            // txtPort
+            // 
+            this.txtPort.Location = new System.Drawing.Point(522, 19);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(121, 21);
+            this.txtPort.TabIndex = 32;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(487, 23);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(29, 12);
+            this.label16.TabIndex = 31;
+            this.label16.Text = "端口";
+            // 
+            // btnAddAll
+            // 
+            this.btnAddAll.Location = new System.Drawing.Point(277, 182);
+            this.btnAddAll.Name = "btnAddAll";
+            this.btnAddAll.Size = new System.Drawing.Size(75, 23);
+            this.btnAddAll.TabIndex = 33;
+            this.btnAddAll.Text = "添加全部";
+            this.btnAddAll.UseVisualStyleBackColor = true;
+            this.btnAddAll.Click += new System.EventHandler(this.btnAddAll_Click);
+            // 
+            // btnClearn
+            // 
+            this.btnClearn.Location = new System.Drawing.Point(277, 261);
+            this.btnClearn.Name = "btnClearn";
+            this.btnClearn.Size = new System.Drawing.Size(75, 23);
+            this.btnClearn.TabIndex = 34;
+            this.btnClearn.Text = "清空";
+            this.btnClearn.UseVisualStyleBackColor = true;
+            this.btnClearn.Click += new System.EventHandler(this.btnClearn_Click);
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(677, 615);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(103, 27);
+            this.btnCreate.TabIndex = 35;
+            this.btnCreate.Text = "生成实体文件";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
             // MyBatis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 654);
+            this.ClientSize = new System.Drawing.Size(975, 654);
+            this.Controls.Add(this.btnCreate);
+            this.Controls.Add(this.btnClearn);
+            this.Controls.Add(this.btnAddAll);
+            this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtXMLPath);
             this.Controls.Add(this.label15);
@@ -590,6 +647,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtXMLPath;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtPort;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnAddAll;
+        private System.Windows.Forms.Button btnClearn;
+        private System.Windows.Forms.Button btnCreate;
     }
 }
 

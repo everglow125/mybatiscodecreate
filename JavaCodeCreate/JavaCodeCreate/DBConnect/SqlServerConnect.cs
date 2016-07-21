@@ -11,13 +11,19 @@ namespace JavaCodeCreate.DBConnect
     public class SqlServerConnect : IDbConnect
     {
 
-        public DataTable QueryDatabases(string conn)
+        public List<string> QueryDatabases(string conn)
         {
             string sql = "select [database] from [sysdatabases] order by [name]";
-            return ExecuteDataTable(conn, sql);
+            return ExecuteDataTable(conn, sql).ToStringList();
         }
 
-        public string GetConnectStr(string serverAddress, string account, string password, string dbName)
+        public List<string> QueryDataTables(string conn)
+        {
+            string sql = "select [database] from [sysdatabases] order by [name]";
+            return ExecuteDataTable(conn, sql).ToStringList();
+        }
+
+        public string GetConnectStr(string serverAddress, string port, string account, string password, string dbName)
         {
             string connection = string.Format("Data Source={0};User Id={1};Password={2};"
                                   , serverAddress

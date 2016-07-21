@@ -34,20 +34,29 @@ namespace JavaCodeCreate.DBConnect
         }
 
 
-        public DataTable QueryDatabases(string conn)
+
+        public List<string> QueryDatabases(string conn)
         {
             string mysql = "show databases;";
-            return ExcuteDataTable(mysql, conn);
+            return ExcuteDataTable(mysql, conn).ToStringList();
         }
 
-        public string GetConnectStr(string serverAddress, string account, string password, string dbName)
+        public List<string> QueryDataTables(string conn)
         {
-            string connection = string.Format("Data Source={0};User ID={1};Password={2};CharSet=utf8;port=3306;"
+            string mysql = "show tables;";
+            return ExcuteDataTable(mysql, conn).ToStringList();
+        }
+
+        public string GetConnectStr(string serverAddress, string port, string account, string password, string dbName)
+        {
+            string connection = string.Format("Data Source={0};User ID={1};Password={2};CharSet=utf8;"
                       , serverAddress
                       , account
                       , password);
             if (!string.IsNullOrEmpty(dbName))
                 connection += string.Format("Database='{0}';", dbName);
+            if (!string.IsNullOrEmpty(port))
+                connection += string.Format("port='{0}';", port);
             return connection;
         }
     }

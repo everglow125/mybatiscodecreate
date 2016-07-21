@@ -9,7 +9,8 @@ namespace JavaCodeCreate.DBConnect
 {
     public interface IDbConnect
     {
-        DataTable QueryDatabases(string conn);
-        string GetConnectStr(string serverAddress, string account, string password, string dbName);
+        List<string> QueryDatabases(string conn);
+        List<string> QueryDataTables(string conn);
+        string GetConnectStr(string serverAddress, string port, string account, string password, string dbName);
     }
 }
