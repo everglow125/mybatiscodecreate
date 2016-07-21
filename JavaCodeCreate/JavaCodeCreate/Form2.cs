@@ -39,9 +39,8 @@ namespace JavaCodeCreate
                 this.txtConfig.Text = configPath;
                 LoadConfig(configPath);
             }
-            SqlJar = this.txtSqlJar.Text.Trim();
             GeneratorJar = this.txtGeneratorJar.Text.Trim();
-
+            InitDataByDbtype();
         }
 
         static string SysPath = "";
@@ -496,6 +495,34 @@ namespace JavaCodeCreate
                 dbName = this.cbxDbName.SelectedItem.ToString();
             string conn = db.GetConnectStr(this.txtService.Text, this.txtPort.Text, this.txtAccount.Text, this.txtPassword.Text, dbName);
             return conn;
+        }
+
+        private void InitDataByDbtype()
+        {
+            switch (this.cbxDbType.SelectedItem.ToString())
+            {
+                case "MySql":
+                    this.txtSaveConfigName.Text = "mysql_cfg";
+                    this.txtSqlJar.Text = SysPath + "\\jar\\mysql-connector-java-5.1.39-bin.jar";
+                    this.txtPort.Text = "3306";
+                    break;
+                case "Oracle":
+                    this.txtSaveConfigName.Text = "oracle_cfg";
+                    this.txtSqlJar.Text = SysPath + "\\jar\\oracle_jdbc.jar";
+                    this.txtPort.Text = "1521";
+                    break;
+                case "Sql Server":
+                    this.txtSqlJar.Text = SysPath + "\\jar\\sqljdbc4.jar";
+                    this.txtSaveConfigName.Text = "sqlserver_cfg";
+                    this.txtPort.Text = "1433";
+                    break;
+            }
+            SqlJar = this.txtSqlJar.Text.Trim();
+        }
+
+        private void cbxDbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InitDataByDbtype();
         }
     }
 }

@@ -28,3 +28,4 @@ D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCre
 D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Properties.Resources.resources
 D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csproj.GenerateResource.Cache
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Form2.resources
+D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Form2.resources

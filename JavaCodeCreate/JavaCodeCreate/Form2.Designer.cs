@@ -80,13 +80,13 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.rtxtTablesMap = new System.Windows.Forms.RichTextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtPrefix = new System.Windows.Forms.TextBox();
             this.btnClearnAllTable = new System.Windows.Forms.Button();
             this.btnAddAllTable = new System.Windows.Forms.Button();
             this.btnAddSelectedTable = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lbxTables = new System.Windows.Forms.ListBox();
-            this.txtPrefix = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -283,6 +283,7 @@
             this.cbxDbType.Name = "cbxDbType";
             this.cbxDbType.Size = new System.Drawing.Size(166, 20);
             this.cbxDbType.TabIndex = 34;
+            this.cbxDbType.SelectedIndexChanged += new System.EventHandler(this.cbxDbType_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -601,6 +602,22 @@
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 78);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(29, 12);
+            this.label17.TabIndex = 40;
+            this.label17.Text = "前缀";
+            // 
+            // txtPrefix
+            // 
+            this.txtPrefix.Location = new System.Drawing.Point(42, 75);
+            this.txtPrefix.Name = "txtPrefix";
+            this.txtPrefix.Size = new System.Drawing.Size(100, 21);
+            this.txtPrefix.TabIndex = 38;
+            // 
             // btnClearnAllTable
             // 
             this.btnClearnAllTable.Location = new System.Drawing.Point(35, 246);
@@ -652,22 +669,6 @@
             this.lbxTables.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lbxTables.Size = new System.Drawing.Size(368, 340);
             this.lbxTables.TabIndex = 13;
-            // 
-            // txtPrefix
-            // 
-            this.txtPrefix.Location = new System.Drawing.Point(42, 75);
-            this.txtPrefix.Name = "txtPrefix";
-            this.txtPrefix.Size = new System.Drawing.Size(100, 21);
-            this.txtPrefix.TabIndex = 38;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 78);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(29, 12);
-            this.label17.TabIndex = 40;
-            this.label17.Text = "前缀";
             // 
             // Form2
             // 
