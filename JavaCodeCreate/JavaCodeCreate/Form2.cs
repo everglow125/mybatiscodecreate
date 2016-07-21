@@ -400,8 +400,19 @@ namespace JavaCodeCreate
 
         private void CreateGeneratorXml()
         {
-
             var dbconfig = GetDbConfig();
+            var sqlserverLink = "jdbc:sqlserver://" + dbconfig.Service + ":" + (String.IsNullOrEmpty(dbconfig.Port) ? "1143" : dbconfig.Port) + ";DatabaseName=" + dbconfig.DbName; ;
+
+            if (dbconfig.Service.Contains("/"))
+            {
+                var temp = dbconfig.Service.Split('/');
+                sqlserverLink = "jdbc:sqlserver://" + temp[0] + ":" + (String.IsNullOrEmpty(dbconfig.Port) ? "1143" : dbconfig.Port) + "/" + temp[1] + ";DatabaseName=" + dbconfig.DbName; ;
+            }
+            else if (dbconfig.Service.Contains("\\"))
+            {
+                var temp = dbconfig.Service.Split('\\');
+                sqlserverLink = "jdbc:sqlserver://" + temp[0] + ":" + (String.IsNullOrEmpty(dbconfig.Port) ? "1143" : dbconfig.Port) + "\\" + temp[1] + ";DatabaseName=" + dbconfig.DbName; ;
+            }
             string driverClass = "";
             string dblink = "";
             switch (this.cbxDbType.SelectedItem.ToString())
@@ -410,10 +421,12 @@ namespace JavaCodeCreate
                     driverClass = "com.mysql.jdbc.Driver";
                     dblink = "jdbc:mysql://" + dbconfig.Service + ":" + (String.IsNullOrEmpty(dbconfig.Port) ? "3306" : dbconfig.Port) + "/" + dbconfig.DbName; break;
                 case "Oracle":
-                    driverClass = "com.mysql.jdbc.Driver"; break;
+                    driverClass = "com.mysql.jdbc.Driver";
+                    dblink = "jdbc:oracle://" + dbconfig.Service + ":" + (String.IsNullOrEmpty(dbconfig.Port) ? "1521" : dbconfig.Port) + ";DatabaseName=" + dbconfig.DbName;
+                    break;
                 case "Sql Server":
                     driverClass = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-                    dblink = "jdbc:sqlserver://" + dbconfig.Service + ":" + (String.IsNullOrEmpty(dbconfig.Port) ? "1143" : dbconfig.Port) + ";DatabaseName=" + dbconfig.DbName;
+                    dblink = sqlserverLink;
                     break;
             }
 
