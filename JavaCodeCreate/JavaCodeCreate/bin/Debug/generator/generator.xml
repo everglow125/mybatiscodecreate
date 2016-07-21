@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <classPathEntry location="D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\jar\sqljdbc4.jar" /> 
+    <classPathEntry location="D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\jar\mysql-connector-java-5.1.39-bin.jar" /> 
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
@@ -11,16 +11,18 @@
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
-        <javaModelGenerator targetPackage="com.jason.test.model" targetProject="D:\test">
+        <javaModelGenerator targetPackage="com.jason.model" targetProject="D:\test">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
-        <sqlMapGenerator targetPackage="com.jason.test.mapping" targetProject="D:\test">
+        <sqlMapGenerator targetPackage="com.jason.mapping" targetProject="D:\test">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jason.test.dao" targetProject="D:\test">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.jason.dao" targetProject="D:\test">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
-		<table tableName="dt_Account" domainObjectName="Account" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /><table tableName="dt_Article" domainObjectName="Article" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		
+		<table tableName="dt_Account" domainObjectName="DtAccount" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+		<table tableName="dt_Article" domainObjectName="DtArticle" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
     </context>
 </generatorConfiguration>

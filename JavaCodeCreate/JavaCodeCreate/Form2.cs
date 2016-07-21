@@ -50,7 +50,9 @@ namespace JavaCodeCreate
         private void btnSelectConfig_Click(object sender, EventArgs e)
         {
             string filter = "INI Files(*.ini)|*.ini";
-            this.txtConfig.Text = SelectFile(filter);
+            string path = SelectFile(filter);
+            if (path != "")
+                this.txtConfig.Text = path;
         }
 
         private void btnImportConfig_Click(object sender, EventArgs e)
@@ -193,13 +195,17 @@ namespace JavaCodeCreate
 
         private void btnOutputpath_Click(object sender, EventArgs e)
         {
-            this.txtOutputPath.Text = SelectPath();
+            var path = SelectPath();
+            if (path != "")
+                this.txtOutputPath.Text = path;
         }
 
         private void btnSelectSqlJar_Click(object sender, EventArgs e)
         {
             string filter = "JAR Files(*.jar)|*.jar";
-            this.txtSqlJar.Text = SelectFile(filter);
+            var path = SelectFile(filter);
+            if (path != "")
+                this.txtSqlJar.Text = path;
         }
 
         private void btnSavePath_Click(object sender, EventArgs e)
@@ -230,6 +236,7 @@ namespace JavaCodeCreate
             {
                 CreateGeneratorXml();
                 MessageBox.Show(this, "生成Generator文件成功", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                OpenFileDir(SysPath + "\\generator\\generator.xml");
             }
             catch (Exception ex)
             {
@@ -305,7 +312,9 @@ namespace JavaCodeCreate
         private void btnSelectGeneratorJar_Click(object sender, EventArgs e)
         {
             string filter = "JAR Files(*.jar)|*.jar";
-            this.txtGeneratorJar.Text = SelectFile(filter);
+            string path = SelectFile(filter);
+            if (path != "")
+                this.txtGeneratorJar.Text = path;
         }
 
         private void OpenFileDir(string filePath)
@@ -320,6 +329,7 @@ namespace JavaCodeCreate
         {
             string result = "";
             FolderBrowserDialog path = new FolderBrowserDialog();
+            path.SelectedPath = SysPath;
             path.ShowDialog();
             result = path.SelectedPath;
             return result;
@@ -430,7 +440,7 @@ namespace JavaCodeCreate
                     break;
             }
 
-            string tableTemp = "<table tableName=\"{0}\" domainObjectName=\"{1}\" enableCountByExample=\"false\" enableUpdateByExample=\"false\" enableDeleteByExample=\"false\" enableSelectByExample=\"false\" selectByExampleQueryId=\"false\" />";
+            string tableTemp = "\r\n\t\t<table tableName=\"{0}\" domainObjectName=\"{1}\" enableCountByExample=\"false\" enableUpdateByExample=\"false\" enableDeleteByExample=\"false\" enableSelectByExample=\"false\" selectByExampleQueryId=\"false\" />";
             StringBuilder sbTables = new StringBuilder();
             var tabMaps = GetTableMap();
             foreach (var item in tabMaps)
