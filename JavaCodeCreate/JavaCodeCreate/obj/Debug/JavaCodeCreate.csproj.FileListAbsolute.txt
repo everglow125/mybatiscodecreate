@@ -29,3 +29,11 @@ D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCre
 D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csproj.GenerateResource.Cache
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Form2.resources
 D:\gitfile\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.Form2.resources
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\ICSharpCode.SharpZipLib.dll
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\NPOI.dll
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\NPOI.OOXML.dll
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\NPOI.OpenXml4Net.dll
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\NPOI.OpenXmlFormats.dll
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\NPOI.xml
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\Interop.Office.dll
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csproj.ResolveComReference.cache

@@ -87,6 +87,7 @@
             this.btnAddSelectedTable = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lbxTables = new System.Windows.Forms.ListBox();
+            this.btn_ExportData = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -106,7 +107,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1109, 53);
+            this.groupBox1.Size = new System.Drawing.Size(1268, 53);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "导入配置";
@@ -166,7 +167,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 53);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1109, 92);
+            this.groupBox2.Size = new System.Drawing.Size(1268, 92);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "数据库配置";
@@ -296,6 +297,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_ExportData);
             this.groupBox3.Controls.Add(this.txtSaveConfigName);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.btnSavePath);
@@ -307,7 +309,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.Location = new System.Drawing.Point(0, 680);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1109, 56);
+            this.groupBox3.Size = new System.Drawing.Size(1268, 56);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "操作";
@@ -406,7 +408,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox4.Location = new System.Drawing.Point(0, 525);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1109, 155);
+            this.groupBox4.Size = new System.Drawing.Size(1268, 155);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "输出配置";
@@ -564,7 +566,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 145);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1109, 380);
+            this.groupBox5.Size = new System.Drawing.Size(1268, 380);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "数据表配置";
@@ -575,7 +577,7 @@
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(525, 17);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(581, 360);
+            this.groupBox8.Size = new System.Drawing.Size(740, 360);
             this.groupBox8.TabIndex = 2;
             this.groupBox8.TabStop = false;
             // 
@@ -584,7 +586,7 @@
             this.rtxtTablesMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtxtTablesMap.Location = new System.Drawing.Point(3, 17);
             this.rtxtTablesMap.Name = "rtxtTablesMap";
-            this.rtxtTablesMap.Size = new System.Drawing.Size(575, 340);
+            this.rtxtTablesMap.Size = new System.Drawing.Size(734, 340);
             this.rtxtTablesMap.TabIndex = 14;
             this.rtxtTablesMap.Text = "";
             // 
@@ -670,11 +672,21 @@
             this.lbxTables.Size = new System.Drawing.Size(368, 340);
             this.lbxTables.TabIndex = 13;
             // 
+            // btn_ExportData
+            // 
+            this.btn_ExportData.Location = new System.Drawing.Point(1121, 16);
+            this.btn_ExportData.Name = "btn_ExportData";
+            this.btn_ExportData.Size = new System.Drawing.Size(103, 27);
+            this.btn_ExportData.TabIndex = 44;
+            this.btn_ExportData.Text = "导出数据结构";
+            this.btn_ExportData.UseVisualStyleBackColor = true;
+            this.btn_ExportData.Click += new System.EventHandler(this.btn_ExportData_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 736);
+            this.ClientSize = new System.Drawing.Size(1268, 736);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -760,5 +772,6 @@
         private System.Windows.Forms.Button btnSaveConfig;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtPrefix;
+        private System.Windows.Forms.Button btn_ExportData;
     }
 }

@@ -33,7 +33,9 @@ namespace JavaCodeCreate.DBConnect
             return null;
         }
 
-
+        public DataTable QueryColumns(string conn, string tableName) {
+            return null;
+        }
 
         public List<string> QueryDatabases(string conn)
         {

@@ -12,5 +12,7 @@ namespace JavaCodeCreate.DBConnect
         List<string> QueryDatabases(string conn);
         List<string> QueryDataTables(string conn);
         string GetConnectStr(string serverAddress, string port, string account, string password, string dbName);
+        DataTable QueryColumns(string conn, string tableName);
+        DataTable QueryDataTablesFull(string conn);
     }
 }

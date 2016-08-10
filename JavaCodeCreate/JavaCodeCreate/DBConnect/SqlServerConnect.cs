@@ -16,7 +16,14 @@ namespace JavaCodeCreate.DBConnect
             string sql = "select [name] from [sysdatabases] order by [name]";
             return ExecuteDataTable(conn, sql).ToStringList();
         }
-
+        public DataTable QueryColumns(string conn, string tableName)
+        {
+            return null;
+        }
+        public DataTable QueryDataTablesFull(string conn)
+        {
+            return null;
+        }
         public List<string> QueryDataTables(string conn)
         {
             string sql = "SELECT  name FROM  sysobjects WHERE   xtype = 'U' ORDER BY name;";
