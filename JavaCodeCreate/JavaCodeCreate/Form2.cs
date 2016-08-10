@@ -565,16 +565,16 @@ namespace JavaCodeCreate
                 this.rtxtTablesMap.Clear();
                 IDbConnect db = null;
                 string conn = GetConnect(ref db);
-                List<string> tables = db.QueryDataTables(conn);
-                foreach (var item in tables)
+                var tables = db.QueryDataTablesFull(conn);
+                foreach (DataRow item in tables.Rows)
                 {
                     //创建段落对象
                     XWPFParagraph p1 = doc.CreateParagraph();
                     XWPFRun r1 = p1.CreateRun();
-                    r1.SetText(item);
+                    r1.SetText(item["comments"].ToString() + "——" + item["TABLE_NAME"].ToString());
                     r1.SetFontFamily("Arial", FontCharRange.Ascii);//设置雅黑字体
                     //创建表格对象列数写死了，可根据自己需要改进或者自己想想解决方案
-                    var columns = db.QueryColumns(conn, item);
+                    var columns = db.QueryColumns(conn, item["TABLE_NAME"].ToString());
                     XWPFTable table = doc.CreateTable(columns.Rows.Count, 4);
                     table.SetColumnWidth(0, 2000);
                     table.SetColumnWidth(1, 1500);

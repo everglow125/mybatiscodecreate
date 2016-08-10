@@ -52,7 +52,7 @@ namespace JavaCodeCreate.DBConnect
 
         public DataTable QueryDataTablesFull(string conn)
         {
-            string mysql = "SELECT T1.TABLE_NAME '表名',T1.comments '备注' FROM user_tab_comments T1";
+            string mysql = "SELECT T1.TABLE_NAME ,T1.comments FROM user_tab_comments T1 order by T1.TABLE_NAME ";
             return ExcuteDataTable(mysql, conn);
         }
 
@@ -67,13 +67,13 @@ FROM
 JOIN
   (SELECT *
    FROM user_col_comments
-   WHERE TABLE_NAME='{0}') T2 ON T1.column_name=T2.column_Name", tableName);
+   WHERE TABLE_NAME='{0}') T2 ON T1.column_name=T2.column_Name  ", tableName);
             return ExcuteDataTable(mysql, conn);
         }
 
         public string GetConnectStr(string serverAddress, string port, string account, string password, string dbName)
         {
-            return "Data Source=115.28.180.117;User Id=microcredit;Password=microcredit;Integrated Security=no;";
+            //return "Data Source=115.28.180.117;User Id=microcredit;Password=microcredit;Integrated Security=no;";
             string connection = string.Format("Data Source={0};User Id={1};Password={2};Integrated Security=no;"
                       , serverAddress
                       , account

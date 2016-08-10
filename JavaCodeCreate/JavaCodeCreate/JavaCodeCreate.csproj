@@ -96,6 +96,12 @@
     <Compile Include="DBConnect\SqlServerConnect.cs" />
     <Compile Include="DBConnect\OracleConnect.cs" />
     <Compile Include="EnvironmentVarUtil.cs" />
+    <Compile Include="ExportDataTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportDataTable.Designer.cs">
+      <DependentUpon>ExportDataTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializerHelper.cs" />
     <Compile Include="StringExtension.cs" />
+    <EmbeddedResource Include="ExportDataTable.resx">
+      <DependentUpon>ExportDataTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

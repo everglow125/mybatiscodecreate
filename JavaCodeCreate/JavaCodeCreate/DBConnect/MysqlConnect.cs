@@ -48,6 +48,9 @@ namespace JavaCodeCreate.DBConnect
             string mysql = "show tables;";
             return ExcuteDataTable(mysql, conn).ToStringList();
         }
+        public DataTable QueryDataTablesFull(string conn) {
+            return null;
+        }
 
         public string GetConnectStr(string serverAddress, string port, string account, string password, string dbName)
         {
