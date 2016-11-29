@@ -16,7 +16,7 @@ namespace JavaCodeCreate
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ExportDataTable());
+            Application.Run(new ExportDataStruct());
         }
     }
 }

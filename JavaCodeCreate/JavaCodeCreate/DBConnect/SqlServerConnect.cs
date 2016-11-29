@@ -32,12 +32,23 @@ namespace JavaCodeCreate.DBConnect
 
         public string GetConnectStr(string serverAddress, string port, string account, string password, string dbName)
         {
-            string connection = string.Format("Data Source={0};User Id={1};Password={2};"
-                                  , serverAddress
-                                  , account
-                                  , password);
-            if (!string.IsNullOrEmpty(dbName))
-                connection += string.Format("Initial Catalog={0};", dbName);
+            string connection = "";
+            if (account != "" && password != "")
+            {
+                connection = string.Format("Data Source={0};User Id={1};Password={2};"
+                                       , serverAddress
+                                       , account
+                                       , password);
+                if (!string.IsNullOrEmpty(dbName))
+                    connection += string.Format("Initial Catalog={0};", dbName);
+            }
+            else
+            {
+                connection = string.Format("Server={0};Trusted_Connection=Yes;Connect Timeout=90;", serverAddress);
+                if (!string.IsNullOrEmpty(dbName))
+                    connection += string.Format("Database={0};", dbName);
+            }
+
             return connection;
         }
 

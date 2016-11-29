@@ -38,3 +38,4 @@ F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\bin\Debug\NPOI.xml
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\Interop.Office.dll
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.csproj.ResolveComReference.cache
 F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.ExportDataTable.resources
+F:\mybatiscodecreate\JavaCodeCreate\JavaCodeCreate\obj\Debug\JavaCodeCreate.ExportDataStruct.resources
