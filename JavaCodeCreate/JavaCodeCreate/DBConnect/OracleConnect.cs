@@ -50,13 +50,13 @@ namespace JavaCodeCreate.DBConnect
             return ExcuteDataTable(mysql, conn).ToStringList();
         }
 
-        public DataTable QueryDataTablesFull(string conn)
+        public DataTable QueryDataTablesFull(string conn, string dbName = "")
         {
             string mysql = "SELECT T1.TABLE_NAME ,T1.comments FROM user_tab_comments T1 order by T1.TABLE_NAME ";
             return ExcuteDataTable(mysql, conn);
         }
 
-        public DataTable QueryColumns(string conn, string tableName)
+        public DataTable QueryColumns(string conn, string tableName, string dbName = "")
         {
             string mysql = string.Format(
 @"SELECT NLS_INITCAP(T1.column_Name) 字段名, NLS_INITCAP(T1.data_Type) 类型,T1.Data_Length 长度 ,T2.COMMENTS 备注

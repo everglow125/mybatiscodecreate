@@ -23,7 +23,7 @@ namespace JavaCodeCreate
 
         private void btnExportSqlserver_Click(object sender, EventArgs e)
         {
-            string server = this.cbxServer.Text;
+            string server = this.cbx_sqlserver_server.Text;
             ExportWord();
         }
 
@@ -54,14 +54,29 @@ namespace JavaCodeCreate
 
         private string GetConnect(ref IDbConnect db)
         {
+            string conn = "";
             switch (this.tbcDataBase.SelectedTab.Text.Trim())
             {
-                case "MySql": db = new MysqlConnect(); break;
-                case "Oracle": db = new SqlServerConnect(); break;
-                case "Sql Server": db = new SqlServerConnect(); break;
+                case "MySql":
+                    {
+                        db = new MysqlConnect();
+                        string dbName = this.cbx_sqlserver_database.Text.ToString();
+                        conn = db.GetConnectStr(this.cbx_mysql_server.Text.Trim(), this.txt_mysql_port.Text, this.txt_mysql_account.Text, this.txt_mysql_pwd.Text, dbName);
+                    } break;
+                case "Oracle":
+                    {
+                        db = new SqlServerConnect();
+                        string dbName = this.cbx_sqlserver_database.Text.ToString();
+                        conn = db.GetConnectStr(this.cbx_sqlserver_server.Text.Trim(), "", this.txt_sqlserver_account.Text, this.txt_sqlserver_pwd.Text, dbName);
+                    } break;
+                case "Sql Server":
+                    {
+                        db = new SqlServerConnect();
+                        string dbName = this.cbx_sqlserver_database.Text.ToString();
+                        conn = db.GetConnectStr(this.cbx_sqlserver_server.Text.Trim(), "", this.txt_sqlserver_account.Text, this.txt_sqlserver_pwd.Text, dbName);
+                    } break;
             }
-            string dbName = this.cbxDataBase.Text.ToString();
-            string conn = db.GetConnectStr(this.cbxServer.Text.Trim(), "", this.txtAccount.Text, this.txtPwd.Text, dbName);
+
             return conn;
         }
 
@@ -69,14 +84,14 @@ namespace JavaCodeCreate
         {
             try
             {
-                if (this.cbxServer.Text.Trim() == "") return;
-                bool usePwd = this.rbtnAccount.Checked && this.txtAccount.Text.Trim() != "" && this.txtPwd.Text.Trim().Length > 5;
-                if (this.rbtnLoacl.Checked || usePwd)
+                if (this.cbx_sqlserver_server.Text.Trim() == "") return;
+                bool usePwd = this.rbtn_sqlserver_account.Checked && this.txt_sqlserver_account.Text.Trim() != "" && this.txt_sqlserver_pwd.Text.Trim().Length > 5;
+                if (this.rbtn_sqlserver_local.Checked || usePwd)
                 {
                     IDbConnect db = null;
                     string conn = GetConnect(ref db);
                     List<string> dbs = db.QueryDatabases(conn);
-                    this.cbxDataBase.DataSource = dbs;
+                    this.cbx_sqlserver_database.DataSource = dbs;
                 }
             }
             catch (Exception ex)
@@ -91,13 +106,13 @@ namespace JavaCodeCreate
             {
                 switch (this.tbcDataBase.SelectedTab.Text.Trim())
                 {
-                    case "MySql": this.cbxServer.DataSource = SqlLocator.GetLocalSqlServerNamesWithAPI(); break;
+                    case "MySql": break;
                     case "Oracle": break;
                     case "Sql Server":
                         {
                             var temp = SqlLocator.GetLocalSqlServerNamesWithSqlClientFactory();
                             foreach (var item in temp)
-                                this.cbxServer.Items.Add(item);
+                                this.cbx_sqlserver_server.Items.Add(item);
                             break;
                         }
                 }
@@ -124,6 +139,14 @@ namespace JavaCodeCreate
                 System.Windows.Forms.SaveFileDialog objSave = new System.Windows.Forms.SaveFileDialog();
                 objSave.Filter = "(*.doc)|*.doc|" + "(*.*)|*.*";
                 objSave.FileName = "数据库结构.doc";
+                string dbName = "";
+                switch (this.tbcDataBase.SelectedTab.Text.Trim())
+                {
+                    case "MySql": dbName = this.cbx_mysql_database.Text; break;
+                    case "Oracle": break;
+                    case "Sql Server": break;
+                }
+
                 if (objSave.ShowDialog() == DialogResult.OK)
                 {
 
@@ -131,18 +154,18 @@ namespace JavaCodeCreate
                     XWPFDocument doc = new XWPFDocument();
                     IDbConnect db = null;
                     string conn = GetConnect(ref db);
-                    var tables = db.QueryDataTablesFull(conn);
+                    var tables = db.QueryDataTablesFull(conn, dbName);
                     foreach (DataRow item in tables.Rows)
                     {
                         //创建段落对象
                         XWPFParagraph p1 = doc.CreateParagraph();
                         XWPFRun r1 = p1.CreateRun();
-                        r1.SetText(item["comments"].ToString() + "——" + item["TABLE_NAME"].ToString());
+                        r1.SetText(string.Format("{0}[{1}]", item["TABLE_NAME"].ToString(), item["comments"].ToString()));
                         r1.SetFontFamily("Arial", FontCharRange.Ascii);//设置雅黑字体
-                      
+
                         p1.Style = "标题 1";
                         //创建表格对象列数写死了，可根据自己需要改进或者自己想想解决方案
-                        var columns = db.QueryColumns(conn, item["TABLE_NAME"].ToString());
+                        var columns = db.QueryColumns(conn, item["TABLE_NAME"].ToString(),dbName);
                         XWPFTable table = doc.CreateTable(columns.Rows.Count, 4);
                         table.SetColumnWidth(0, 2000);
                         table.SetColumnWidth(1, 1500);
@@ -192,5 +215,50 @@ namespace JavaCodeCreate
 
         }
 
+        private void btn_mysql_export_Click(object sender, EventArgs e)
+        {
+            ExportWord();
+        }
+
+        #region Mysql自动查询数据库
+        private void cbx_mysql_server_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AutoQueryMysqlDataBases();
+        }
+
+        private void txt_mysql_port_TextChanged(object sender, EventArgs e)
+        {
+            AutoQueryMysqlDataBases();
+        }
+
+        private void txt_mysql_account_TextChanged(object sender, EventArgs e)
+        {
+            AutoQueryMysqlDataBases();
+        }
+
+        private void txt_mysql_pwd_TextChanged(object sender, EventArgs e)
+        {
+            AutoQueryMysqlDataBases();
+        }
+
+        private void AutoQueryMysqlDataBases()
+        {
+            try
+            {
+                if (this.cbx_mysql_server.Text.Trim() == "") return;
+                bool usePwd = this.txt_mysql_account.Text.Trim() != "" && this.txt_mysql_pwd.Text.Trim().Length > 5 && this.txt_mysql_port.Text.Trim() != "";
+                if (usePwd)
+                {
+                    IDbConnect db = null;
+                    string conn = GetConnect(ref db);
+                    List<string> dbs = db.QueryDatabases(conn);
+                    this.cbx_mysql_database.DataSource = dbs;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+        #endregion
     }
 }

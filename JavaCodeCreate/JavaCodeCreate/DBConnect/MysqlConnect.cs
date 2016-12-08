@@ -33,8 +33,13 @@ namespace JavaCodeCreate.DBConnect
             return null;
         }
 
-        public DataTable QueryColumns(string conn, string tableName) {
-            return null;
+        public DataTable QueryColumns(string conn, string tableName, string dbName = "")
+        {
+            string sql = string.Format(@"select Column_Name '字段名',Data_type '类型',Is_Nullable '可空',CHARACTER_MAXIMUM_LENGTH '长度',column_type,COLUMN_COMMENT '备注'
+from INFORMATION_SCHEMA.COLUMNS  
+Where table_name = '{0}'
+AND table_schema = '{1}';", tableName, dbName);
+            return ExcuteDataTable(sql, conn);
         }
 
         public List<string> QueryDatabases(string conn)
@@ -48,8 +53,10 @@ namespace JavaCodeCreate.DBConnect
             string mysql = "show tables;";
             return ExcuteDataTable(mysql, conn).ToStringList();
         }
-        public DataTable QueryDataTablesFull(string conn) {
-            return null;
+        public DataTable QueryDataTablesFull(string conn, string dbName = "")
+        {
+            string sql = string.Format(@"Select table_name as TABLE_NAME,table_comment as comments from INFORMATION_SCHEMA.TABLES where engine='InnoDB' and TABLE_SCHEMA='{0}'", dbName);
+            return ExcuteDataTable(sql, conn);
         }
 
         public string GetConnectStr(string serverAddress, string port, string account, string password, string dbName)

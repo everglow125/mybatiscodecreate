@@ -16,7 +16,7 @@ namespace JavaCodeCreate.DBConnect
             string sql = "select [name] from [sysdatabases] order by [name]";
             return ExecuteDataTable(conn, sql).ToStringList();
         }
-        public DataTable QueryColumns(string conn, string tableName)
+        public DataTable QueryColumns(string conn, string tableName, string dbName = "")
         {
             string mysql = string.Format(
 @"SELECT 
@@ -34,7 +34,7 @@ join  information_schema.columns T5 on T1.name=T5.COLUMN_NAME and T5.TABLE_NAME=
 WHERE T3.name='{0}'", tableName);
             return ExecuteDataTable(conn, mysql);
         }
-        public DataTable QueryDataTablesFull(string conn)
+        public DataTable QueryDataTablesFull(string conn, string dbName = "")
         {
             string mysql = @"SELECT  a.name AS 'TABLE_NAME' ,
         ISNULL(g.[value], '') AS 'comments' 

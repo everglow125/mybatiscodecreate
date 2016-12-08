@@ -31,21 +31,34 @@
             this.tbcDataBase = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnExportSqlserver = new System.Windows.Forms.Button();
-            this.cbxDataBase = new System.Windows.Forms.ComboBox();
+            this.cbx_sqlserver_database = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbxRemenber = new System.Windows.Forms.CheckBox();
-            this.txtPwd = new System.Windows.Forms.TextBox();
+            this.cbx_sqlserver_remenber = new System.Windows.Forms.CheckBox();
+            this.txt_sqlserver_pwd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtAccount = new System.Windows.Forms.TextBox();
+            this.txt_sqlserver_account = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.rbtnAccount = new System.Windows.Forms.RadioButton();
-            this.rbtnLoacl = new System.Windows.Forms.RadioButton();
-            this.cbxServer = new System.Windows.Forms.ComboBox();
+            this.rbtn_sqlserver_account = new System.Windows.Forms.RadioButton();
+            this.rbtn_sqlserver_local = new System.Windows.Forms.RadioButton();
+            this.cbx_sqlserver_server = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_mysql_export = new System.Windows.Forms.Button();
+            this.cbx_mysql_database = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbx_mysql_remenber = new System.Windows.Forms.CheckBox();
+            this.txt_mysql_pwd = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_mysql_account = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbx_mysql_server = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_mysql_port = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tbcDataBase.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbcDataBase
@@ -63,16 +76,16 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.btnExportSqlserver);
-            this.tabPage1.Controls.Add(this.cbxDataBase);
+            this.tabPage1.Controls.Add(this.cbx_sqlserver_database);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.cbxRemenber);
-            this.tabPage1.Controls.Add(this.txtPwd);
+            this.tabPage1.Controls.Add(this.cbx_sqlserver_remenber);
+            this.tabPage1.Controls.Add(this.txt_sqlserver_pwd);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.txtAccount);
+            this.tabPage1.Controls.Add(this.txt_sqlserver_account);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.rbtnAccount);
-            this.tabPage1.Controls.Add(this.rbtnLoacl);
-            this.tabPage1.Controls.Add(this.cbxServer);
+            this.tabPage1.Controls.Add(this.rbtn_sqlserver_account);
+            this.tabPage1.Controls.Add(this.rbtn_sqlserver_local);
+            this.tabPage1.Controls.Add(this.cbx_sqlserver_server);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -93,13 +106,13 @@
             this.btnExportSqlserver.UseVisualStyleBackColor = true;
             this.btnExportSqlserver.Click += new System.EventHandler(this.btnExportSqlserver_Click);
             // 
-            // cbxDataBase
+            // cbx_sqlserver_database
             // 
-            this.cbxDataBase.FormattingEnabled = true;
-            this.cbxDataBase.Location = new System.Drawing.Point(113, 222);
-            this.cbxDataBase.Name = "cbxDataBase";
-            this.cbxDataBase.Size = new System.Drawing.Size(364, 20);
-            this.cbxDataBase.TabIndex = 10;
+            this.cbx_sqlserver_database.FormattingEnabled = true;
+            this.cbx_sqlserver_database.Location = new System.Drawing.Point(113, 222);
+            this.cbx_sqlserver_database.Name = "cbx_sqlserver_database";
+            this.cbx_sqlserver_database.Size = new System.Drawing.Size(364, 20);
+            this.cbx_sqlserver_database.TabIndex = 10;
             // 
             // label4
             // 
@@ -110,23 +123,23 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "数据库";
             // 
-            // cbxRemenber
+            // cbx_sqlserver_remenber
             // 
-            this.cbxRemenber.AutoSize = true;
-            this.cbxRemenber.Location = new System.Drawing.Point(115, 188);
-            this.cbxRemenber.Name = "cbxRemenber";
-            this.cbxRemenber.Size = new System.Drawing.Size(72, 16);
-            this.cbxRemenber.TabIndex = 8;
-            this.cbxRemenber.Text = "记住密码";
-            this.cbxRemenber.UseVisualStyleBackColor = true;
+            this.cbx_sqlserver_remenber.AutoSize = true;
+            this.cbx_sqlserver_remenber.Location = new System.Drawing.Point(115, 188);
+            this.cbx_sqlserver_remenber.Name = "cbx_sqlserver_remenber";
+            this.cbx_sqlserver_remenber.Size = new System.Drawing.Size(72, 16);
+            this.cbx_sqlserver_remenber.TabIndex = 8;
+            this.cbx_sqlserver_remenber.Text = "记住密码";
+            this.cbx_sqlserver_remenber.UseVisualStyleBackColor = true;
             // 
-            // txtPwd
+            // txt_sqlserver_pwd
             // 
-            this.txtPwd.Location = new System.Drawing.Point(184, 154);
-            this.txtPwd.Name = "txtPwd";
-            this.txtPwd.Size = new System.Drawing.Size(293, 21);
-            this.txtPwd.TabIndex = 7;
-            this.txtPwd.TextChanged += new System.EventHandler(this.txtPwd_TextChanged);
+            this.txt_sqlserver_pwd.Location = new System.Drawing.Point(184, 154);
+            this.txt_sqlserver_pwd.Name = "txt_sqlserver_pwd";
+            this.txt_sqlserver_pwd.Size = new System.Drawing.Size(293, 21);
+            this.txt_sqlserver_pwd.TabIndex = 7;
+            this.txt_sqlserver_pwd.TextChanged += new System.EventHandler(this.txtPwd_TextChanged);
             // 
             // label3
             // 
@@ -137,13 +150,13 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "密码";
             // 
-            // txtAccount
+            // txt_sqlserver_account
             // 
-            this.txtAccount.Location = new System.Drawing.Point(184, 127);
-            this.txtAccount.Name = "txtAccount";
-            this.txtAccount.Size = new System.Drawing.Size(293, 21);
-            this.txtAccount.TabIndex = 5;
-            this.txtAccount.TextChanged += new System.EventHandler(this.txtAccount_TextChanged);
+            this.txt_sqlserver_account.Location = new System.Drawing.Point(184, 127);
+            this.txt_sqlserver_account.Name = "txt_sqlserver_account";
+            this.txt_sqlserver_account.Size = new System.Drawing.Size(293, 21);
+            this.txt_sqlserver_account.TabIndex = 5;
+            this.txt_sqlserver_account.TextChanged += new System.EventHandler(this.txtAccount_TextChanged);
             // 
             // label2
             // 
@@ -154,38 +167,38 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "账号";
             // 
-            // rbtnAccount
+            // rbtn_sqlserver_account
             // 
-            this.rbtnAccount.AutoSize = true;
-            this.rbtnAccount.Location = new System.Drawing.Point(113, 94);
-            this.rbtnAccount.Name = "rbtnAccount";
-            this.rbtnAccount.Size = new System.Drawing.Size(95, 16);
-            this.rbtnAccount.TabIndex = 3;
-            this.rbtnAccount.Text = "账户密码验证";
-            this.rbtnAccount.UseVisualStyleBackColor = true;
+            this.rbtn_sqlserver_account.AutoSize = true;
+            this.rbtn_sqlserver_account.Location = new System.Drawing.Point(113, 94);
+            this.rbtn_sqlserver_account.Name = "rbtn_sqlserver_account";
+            this.rbtn_sqlserver_account.Size = new System.Drawing.Size(95, 16);
+            this.rbtn_sqlserver_account.TabIndex = 3;
+            this.rbtn_sqlserver_account.Text = "账户密码验证";
+            this.rbtn_sqlserver_account.UseVisualStyleBackColor = true;
             // 
-            // rbtnLoacl
+            // rbtn_sqlserver_local
             // 
-            this.rbtnLoacl.AutoSize = true;
-            this.rbtnLoacl.Checked = true;
-            this.rbtnLoacl.Location = new System.Drawing.Point(113, 71);
-            this.rbtnLoacl.Name = "rbtnLoacl";
-            this.rbtnLoacl.Size = new System.Drawing.Size(71, 16);
-            this.rbtnLoacl.TabIndex = 2;
-            this.rbtnLoacl.TabStop = true;
-            this.rbtnLoacl.Text = "本地验证";
-            this.rbtnLoacl.UseVisualStyleBackColor = true;
-            this.rbtnLoacl.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.rbtn_sqlserver_local.AutoSize = true;
+            this.rbtn_sqlserver_local.Checked = true;
+            this.rbtn_sqlserver_local.Location = new System.Drawing.Point(113, 71);
+            this.rbtn_sqlserver_local.Name = "rbtn_sqlserver_local";
+            this.rbtn_sqlserver_local.Size = new System.Drawing.Size(71, 16);
+            this.rbtn_sqlserver_local.TabIndex = 2;
+            this.rbtn_sqlserver_local.TabStop = true;
+            this.rbtn_sqlserver_local.Text = "本地验证";
+            this.rbtn_sqlserver_local.UseVisualStyleBackColor = true;
+            this.rbtn_sqlserver_local.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // cbxServer
+            // cbx_sqlserver_server
             // 
-            this.cbxServer.FormattingEnabled = true;
-            this.cbxServer.Location = new System.Drawing.Point(113, 34);
-            this.cbxServer.Name = "cbxServer";
-            this.cbxServer.Size = new System.Drawing.Size(364, 20);
-            this.cbxServer.TabIndex = 1;
-            this.cbxServer.SelectedIndexChanged += new System.EventHandler(this.cbxServer_SelectedIndexChanged);
-            this.cbxServer.TextChanged += new System.EventHandler(this.cbxServer_TextChanged);
+            this.cbx_sqlserver_server.FormattingEnabled = true;
+            this.cbx_sqlserver_server.Location = new System.Drawing.Point(113, 34);
+            this.cbx_sqlserver_server.Name = "cbx_sqlserver_server";
+            this.cbx_sqlserver_server.Size = new System.Drawing.Size(364, 20);
+            this.cbx_sqlserver_server.TabIndex = 1;
+            this.cbx_sqlserver_server.SelectedIndexChanged += new System.EventHandler(this.cbxServer_SelectedIndexChanged);
+            this.cbx_sqlserver_server.TextChanged += new System.EventHandler(this.cbxServer_TextChanged);
             // 
             // label1
             // 
@@ -198,6 +211,18 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.txt_mysql_port);
+            this.tabPage2.Controls.Add(this.btn_mysql_export);
+            this.tabPage2.Controls.Add(this.cbx_mysql_database);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.cbx_mysql_remenber);
+            this.tabPage2.Controls.Add(this.txt_mysql_pwd);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.txt_mysql_account);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.cbx_mysql_server);
+            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -216,6 +241,116 @@
             this.tabPage3.Text = "Oracle";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // btn_mysql_export
+            // 
+            this.btn_mysql_export.Location = new System.Drawing.Point(220, 244);
+            this.btn_mysql_export.Name = "btn_mysql_export";
+            this.btn_mysql_export.Size = new System.Drawing.Size(126, 36);
+            this.btn_mysql_export.TabIndex = 23;
+            this.btn_mysql_export.Text = "导出数据结构";
+            this.btn_mysql_export.UseVisualStyleBackColor = true;
+            this.btn_mysql_export.Click += new System.EventHandler(this.btn_mysql_export_Click);
+            // 
+            // cbx_mysql_database
+            // 
+            this.cbx_mysql_database.FormattingEnabled = true;
+            this.cbx_mysql_database.Location = new System.Drawing.Point(140, 186);
+            this.cbx_mysql_database.Name = "cbx_mysql_database";
+            this.cbx_mysql_database.Size = new System.Drawing.Size(364, 20);
+            this.cbx_mysql_database.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(79, 189);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "数据库";
+            // 
+            // cbx_mysql_remenber
+            // 
+            this.cbx_mysql_remenber.AutoSize = true;
+            this.cbx_mysql_remenber.Location = new System.Drawing.Point(142, 152);
+            this.cbx_mysql_remenber.Name = "cbx_mysql_remenber";
+            this.cbx_mysql_remenber.Size = new System.Drawing.Size(72, 16);
+            this.cbx_mysql_remenber.TabIndex = 20;
+            this.cbx_mysql_remenber.Text = "记住密码";
+            this.cbx_mysql_remenber.UseVisualStyleBackColor = true;
+            // 
+            // txt_mysql_pwd
+            // 
+            this.txt_mysql_pwd.Location = new System.Drawing.Point(140, 114);
+            this.txt_mysql_pwd.Name = "txt_mysql_pwd";
+            this.txt_mysql_pwd.Size = new System.Drawing.Size(364, 21);
+            this.txt_mysql_pwd.TabIndex = 19;
+            this.txt_mysql_pwd.Text = "123456";
+            this.txt_mysql_pwd.TextChanged += new System.EventHandler(this.txt_mysql_pwd_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(91, 117);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "密码";
+            // 
+            // txt_mysql_account
+            // 
+            this.txt_mysql_account.Location = new System.Drawing.Point(140, 87);
+            this.txt_mysql_account.Name = "txt_mysql_account";
+            this.txt_mysql_account.Size = new System.Drawing.Size(364, 21);
+            this.txt_mysql_account.TabIndex = 17;
+            this.txt_mysql_account.Text = "root";
+            this.txt_mysql_account.TextChanged += new System.EventHandler(this.txt_mysql_account_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(91, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "账号";
+            // 
+            // cbx_mysql_server
+            // 
+            this.cbx_mysql_server.FormattingEnabled = true;
+            this.cbx_mysql_server.Location = new System.Drawing.Point(140, 48);
+            this.cbx_mysql_server.Name = "cbx_mysql_server";
+            this.cbx_mysql_server.Size = new System.Drawing.Size(184, 20);
+            this.cbx_mysql_server.TabIndex = 13;
+            this.cbx_mysql_server.Text = "127.0.0.1";
+            this.cbx_mysql_server.SelectedIndexChanged += new System.EventHandler(this.cbx_mysql_server_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(79, 51);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "服务器";
+            // 
+            // txt_mysql_port
+            // 
+            this.txt_mysql_port.Location = new System.Drawing.Point(399, 48);
+            this.txt_mysql_port.Name = "txt_mysql_port";
+            this.txt_mysql_port.Size = new System.Drawing.Size(105, 21);
+            this.txt_mysql_port.TabIndex = 24;
+            this.txt_mysql_port.Text = "3306";
+            this.txt_mysql_port.TextChanged += new System.EventHandler(this.txt_mysql_port_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(352, 51);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "端口";
+            // 
             // ExportDataStruct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -228,6 +363,8 @@
             this.tbcDataBase.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -236,19 +373,31 @@
 
         private System.Windows.Forms.TabControl tbcDataBase;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.RadioButton rbtnAccount;
-        private System.Windows.Forms.RadioButton rbtnLoacl;
-        private System.Windows.Forms.ComboBox cbxServer;
+        private System.Windows.Forms.RadioButton rbtn_sqlserver_account;
+        private System.Windows.Forms.RadioButton rbtn_sqlserver_local;
+        private System.Windows.Forms.ComboBox cbx_sqlserver_server;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnExportSqlserver;
-        private System.Windows.Forms.ComboBox cbxDataBase;
+        private System.Windows.Forms.ComboBox cbx_sqlserver_database;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox cbxRemenber;
-        private System.Windows.Forms.TextBox txtPwd;
+        private System.Windows.Forms.CheckBox cbx_sqlserver_remenber;
+        private System.Windows.Forms.TextBox txt_sqlserver_pwd;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtAccount;
+        private System.Windows.Forms.TextBox txt_sqlserver_account;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txt_mysql_port;
+        private System.Windows.Forms.Button btn_mysql_export;
+        private System.Windows.Forms.ComboBox cbx_mysql_database;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox cbx_mysql_remenber;
+        private System.Windows.Forms.TextBox txt_mysql_pwd;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_mysql_account;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbx_mysql_server;
+        private System.Windows.Forms.Label label8;
     }
 }
