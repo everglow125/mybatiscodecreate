@@ -18,12 +18,35 @@ namespace JavaCodeCreate.DBConnect
         }
         public DataTable QueryColumns(string conn, string tableName)
         {
-            return null;
+            string mysql = string.Format(
+@"SELECT 
+Convert(varchar,T1.Name) as '字段名',--字段名
+Convert(varchar,T2.Name) as '类型',--字段类型
+T1.prec as '长度',--最大长度
+Convert(varchar,T5.COLUMN_DEFAULT) as '默认值',--默认值
+Convert(varchar,T4.value) as '备注',--描述
+T1.isnullable as '可空'--是否为空
+FROM syscolumns T1   
+LEFT JOIN systypes T2 ON T1.xusertype=T2.xusertype   
+INNER JOIN sysobjects T3 ON T1.id=T3.id AND T3.xtype='U ' AND T3.name<>'dtproperties '   
+LEFT JOIN sys.extended_properties T4 ON T1.id=T4.major_id AND T1.colid = T4.minor_id   
+join  information_schema.columns T5 on T1.name=T5.COLUMN_NAME and T5.TABLE_NAME='{0}'
+WHERE T3.name='{0}'", tableName);
+            return ExecuteDataTable(conn, mysql);
         }
         public DataTable QueryDataTablesFull(string conn)
         {
-            return null;
+            string mysql = @"SELECT  a.name AS 'TABLE_NAME' ,
+        ISNULL(g.[value], '') AS 'comments' 
+FROM    sys.tables a
+        LEFT JOIN sys.extended_properties g ON ( a.object_id = g.major_id
+                                                 AND g.minor_id = 0
+                                               )
+WHERE   a.name <> 'sysdiagrams'
+ORDER BY a.name;";
+            return ExecuteDataTable(conn, mysql);
         }
+
         public List<string> QueryDataTables(string conn)
         {
             string sql = "SELECT  name FROM  sysobjects WHERE   xtype = 'U' ORDER BY name;";
