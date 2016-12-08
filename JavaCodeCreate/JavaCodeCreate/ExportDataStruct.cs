@@ -84,7 +84,7 @@ namespace JavaCodeCreate
         {
             try
             {
-                if (this.cbx_sqlserver_server.Text.Trim() == "") return;
+                if (this.cbx_sqlserver_server.Text.Trim() == "" || this.cbx_sqlserver_server.Text.Trim().Length < 7) return;
                 bool usePwd = this.rbtn_sqlserver_account.Checked && this.txt_sqlserver_account.Text.Trim() != "" && this.txt_sqlserver_pwd.Text.Trim().Length > 5;
                 if (this.rbtn_sqlserver_local.Checked || usePwd)
                 {
@@ -96,7 +96,6 @@ namespace JavaCodeCreate
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
             }
         }
 
@@ -165,8 +164,8 @@ namespace JavaCodeCreate
 
                         p1.Style = "标题 1";
                         //创建表格对象列数写死了，可根据自己需要改进或者自己想想解决方案
-                        var columns = db.QueryColumns(conn, item["TABLE_NAME"].ToString(),dbName);
-                        XWPFTable table = doc.CreateTable(columns.Rows.Count, 4);
+                        var columns = db.QueryColumns(conn, item["TABLE_NAME"].ToString(), dbName);
+                        XWPFTable table = doc.CreateTable(columns.Rows.Count + 1, 4);
                         table.SetColumnWidth(0, 2000);
                         table.SetColumnWidth(1, 1500);
                         table.SetColumnWidth(2, 800);
@@ -181,12 +180,12 @@ namespace JavaCodeCreate
                         table.GetRow(0).GetCell(3).SetText("备注");
                         table.GetRow(0).GetCell(3).SetColor("ff0");
 
-                        for (int i = 1; i < columns.Rows.Count; i++)
+                        for (int i = 0; i < columns.Rows.Count; i++)
                         {
-                            table.GetRow(i).GetCell(0).SetText(columns.Rows[i - 1]["字段名"].ToString());
-                            table.GetRow(i).GetCell(1).SetText(columns.Rows[i - 1]["类型"].ToString());
-                            table.GetRow(i).GetCell(2).SetText(columns.Rows[i - 1]["长度"].ToString());
-                            table.GetRow(i).GetCell(3).SetText(columns.Rows[i - 1]["备注"].ToString());
+                            table.GetRow(i + 1).GetCell(0).SetText((columns.Rows[i]["字段名"] ?? "").ToString());
+                            table.GetRow(i + 1).GetCell(1).SetText((columns.Rows[i]["类型"] ?? "").ToString());
+                            table.GetRow(i + 1).GetCell(2).SetText((columns.Rows[i]["长度"] ?? "").ToString());
+                            table.GetRow(i + 1).GetCell(3).SetText((columns.Rows[i]["备注"] ?? "").ToString());
                         }
                     }
                     if (File.Exists(objSave.FileName))
