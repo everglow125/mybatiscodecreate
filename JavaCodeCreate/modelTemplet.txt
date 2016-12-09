@@ -1,0 +1,25 @@
+
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace Entity.LogicModel
+{
+    public class {0}
+    {
+	{1}
+
+	{2}
+
+        /// <summary>
+        /// {0}
+        /// </summary>
+        [DisplayName("{1}")]
+        public string {2} { get; set; }
+
+        public void TrimColumns()
+        {
+            this.{0} = (this.{0} ?? "").Trim();
+        }
+    }
+
+}

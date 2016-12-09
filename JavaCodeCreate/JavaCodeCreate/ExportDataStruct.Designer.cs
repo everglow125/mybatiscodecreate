@@ -43,7 +43,8 @@
             this.cbx_sqlserver_server = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt_mysql_port = new System.Windows.Forms.TextBox();
             this.btn_mysql_export = new System.Windows.Forms.Button();
             this.cbx_mysql_database = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,8 +55,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cbx_mysql_server = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txt_mysql_port = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.tbcDataBase.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -211,6 +212,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.txt_mysql_port);
             this.tabPage2.Controls.Add(this.btn_mysql_export);
@@ -231,15 +233,23 @@
             this.tabPage2.Text = "MySql";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // label9
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(583, 380);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Oracle";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(352, 51);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "端口";
+            // 
+            // txt_mysql_port
+            // 
+            this.txt_mysql_port.Location = new System.Drawing.Point(399, 48);
+            this.txt_mysql_port.Name = "txt_mysql_port";
+            this.txt_mysql_port.Size = new System.Drawing.Size(105, 21);
+            this.txt_mysql_port.TabIndex = 24;
+            this.txt_mysql_port.Text = "3306";
+            this.txt_mysql_port.TextChanged += new System.EventHandler(this.txt_mysql_port_TextChanged);
             // 
             // btn_mysql_export
             // 
@@ -333,23 +343,25 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "服务器";
             // 
-            // txt_mysql_port
+            // tabPage3
             // 
-            this.txt_mysql_port.Location = new System.Drawing.Point(399, 48);
-            this.txt_mysql_port.Name = "txt_mysql_port";
-            this.txt_mysql_port.Size = new System.Drawing.Size(105, 21);
-            this.txt_mysql_port.TabIndex = 24;
-            this.txt_mysql_port.Text = "3306";
-            this.txt_mysql_port.TextChanged += new System.EventHandler(this.txt_mysql_port_TextChanged);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(583, 380);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Oracle";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // button1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(352, 51);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 12);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "端口";
+            this.button1.Location = new System.Drawing.Point(220, 297);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 36);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "生成C#代码";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ExportDataStruct
             // 
@@ -399,5 +411,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbx_mysql_server;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
     }
 }

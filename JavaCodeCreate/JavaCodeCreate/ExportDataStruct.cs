@@ -219,6 +219,7 @@ namespace JavaCodeCreate
             ExportWord();
         }
 
+
         #region Mysql自动查询数据库
         private void cbx_mysql_server_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -259,5 +260,40 @@ namespace JavaCodeCreate
             }
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string dbName = "";
+                switch (this.tbcDataBase.SelectedTab.Text.Trim())
+                {
+                    case "MySql": dbName = this.cbx_mysql_database.Text; break;
+                    case "Oracle": break;
+                    case "Sql Server": break;
+                }
+                IDbConnect db = null;
+                string conn = GetConnect(ref db);
+                var tables = db.QueryDataTablesFull(conn, dbName);
+                foreach (DataRow item in tables.Rows)
+                {
+
+                    //创建表格对象列数写死了，可根据自己需要改进或者自己想想解决方案
+                    var columns = db.QueryColumns(conn, item["TABLE_NAME"].ToString(), dbName);
+
+                    new CreateModel().Excute(item["TABLE_NAME"].ToString(), item["comments"].ToString(), columns, "E:/Entity/");
+
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                IsComplite = true;
+            }
+
+        }
     }
 }
