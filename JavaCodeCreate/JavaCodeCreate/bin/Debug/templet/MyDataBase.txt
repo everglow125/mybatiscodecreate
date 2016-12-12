@@ -41,6 +41,7 @@ namespace DataBase
         private string GetWhere({0} t)
         {{
             StringBuilder sb = new StringBuilder();
+{5}
             return sb.ToString();
         }}
 

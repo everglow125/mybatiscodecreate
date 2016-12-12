@@ -21,7 +21,8 @@ namespace JavaCodeCreate
             }
             string insertSql = GetInsert(table);
             string updateSql = GetUpdate(table);
-            string content = string.Format(contentTmp, table.ClassName, table.TableName, table.DbPrimeyKey, insertSql, updateSql);
+            string whereSql = GetWhere(table);
+            string content = string.Format(contentTmp, table.ClassName, table.TableName, table.DbPrimeyKey, insertSql, updateSql, whereSql);
             filePath = filePath + "DataBase/";
             string fileName = filePath + table.ClassName + "Dal.cs";
             if (!Directory.Exists(filePath))
@@ -32,6 +33,24 @@ namespace JavaCodeCreate
                 File.Delete(fileName);
             using (StreamWriter sw = new StreamWriter(fileName))
                 sw.WriteLine(content);
+        }
+
+        private static string GetWhere(DbTableMapping table)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in table.Columns)
+            {
+
+                if (item.ColumnType == "int" || item.ColumnType == "long")
+                {
+                    sb.AppendFormat("\n\t\t\tif(t.{0}>-1) sb.Append(\" and {1}=@{0} \");", item.ColumnName, item.DbColumnName);
+                }
+                if (item.ColumnType == "string")
+                {
+                    sb.AppendFormat("\n\t\t\tif(!string.IsNullOrEmpty(t.{0})) sb.Append(\" and {1}=@{0} \");", item.ColumnName, item.DbColumnName);
+                }
+            }
+            return sb.ToString();
         }
 
 
