@@ -12,7 +12,7 @@ namespace JavaCodeCreate
     {
         public static void Excute(DbTableMapping table, string filePath)
         {
-            string tempPath = System.Environment.CurrentDirectory + "/templet/DataBase.txt";
+            string tempPath = System.Environment.CurrentDirectory + "/templet/MyDataBase.txt";
 
             var contentTmp = "";
             using (StreamReader sr = new StreamReader(tempPath))
@@ -49,8 +49,8 @@ namespace JavaCodeCreate
         private static string GetUpdate(DbTableMapping table)
         {
             StringBuilder sbInsert = new StringBuilder();
-            sbInsert.AppendFormat("Update {0} with(RowLock) set ", table.TableName);
-            sbInsert.Append(string.Join(",", table.Columns.Where(x => !x.IsPrimeyKey).Select(x => x.DbColumnName + "= @" + x.ColumnName)));
+            sbInsert.AppendFormat("Update {0} set ", table.TableName);
+            sbInsert.Append(string.Join(",", table.Columns.Where(x => !x.IsPrimeyKey && x.DbColumnName != "create_by" && x.DbColumnName != "create_time").Select(x => x.DbColumnName + "= @" + x.ColumnName)));
             sbInsert.AppendFormat(" where {0}=@{1}", table.DbPrimeyKey, table.DbPrimeyKey.ToFieldName());
             return sbInsert.ToString();
         }
