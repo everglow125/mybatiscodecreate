@@ -8,10 +8,10 @@ namespace JavaCodeCreate
 {
     public static class StringExtension
     {
-        public static string ToClassName(this string source)
-        {
-            return System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(source).Replace("_", "");
-        }
+        //public static string ToClassName(this string source)
+        //{
+        //    return System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(source).Replace("_", "");
+        //}
         public static string ToClassName(this string source, string prefix)
         {
             source = source.Trim();

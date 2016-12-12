@@ -10,102 +10,41 @@ namespace JavaCodeCreate
 {
     public class CreateModel
     {
-        private string GetColumnDefinition(string columnName, string columnType, string columnComment, string orgColumnName)
+        private static string GetColumnDefinition(DbColumnMapping column)
         {
+            if (column.DbColumnName == "create_by" || column.DbColumnName == "create_time") return "";
             return string.Format(
-"\n/// <summary> \n/// {0} \n/// </summary> \n[DisplayName(\"{0}\")] \n[ColumnMapping(Name=\"{3}\")] \npublic {1} {2} {{ get; set; }}", columnComment, columnType, columnName, orgColumnName);
+                    "\n\t\t/// <summary> \n\t\t/// {0} \n\t\t/// </summary> \n\t\t[DisplayName(\"{0}\")] \n\t\t[ColumnMapping(Name=\"{3}\")] \n\t\tpublic {1} {2} {{ get; set; }}"
+                    , column.Comment, column.ColumnType, column.ColumnName, column.DbColumnName);
         }
 
-        private string GetTrimColumn(string columnName)
+        private static string GetTrimColumn(string columnName)
         {
-            return string.Format("this.{0} = (this.{0} ?? \"\").Trim();", columnName);
+            return string.Format("\n\t\t\tthis.{0} = (this.{0} ?? \"\").Trim();", columnName);
 
         }
 
-        private string GetColumnName(string columnName)
-        {
-            StringBuilder sb = new StringBuilder();
-            string[] words = columnName.Split('_');
-            foreach (var item in words)
-                sb.Append(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(item));
-            return sb.ToString();
-        }
-
-        private string GetTableName(string tableName)
-        {
-            StringBuilder sb = new StringBuilder();
-            string[] words = tableName.Split('_');
-            foreach (var item in words)
-                sb.Append(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(item));
-            if (sb.ToString().EndsWith("s"))
-                return sb.ToString().Substring(0, sb.Length - 1);
-            else return sb.ToString();
-        }
-
-        private string GetColumnType(string columnType)
-        {
-            columnType = columnType.Trim().ToLower();
-            string result = "";
-            switch (columnType)
-            {
-                case "varchar":
-                case "nvarchar":
-                case "char":
-                case "nchar":
-                case "text":
-                case "ntext": result = "string"; break;
-                case "int": result = "int"; break;
-                case "bigint": result = "long"; break;
-                case "float": result = "double"; break;
-                case "decimal": result = "decimal"; break;
-                case "date":
-                case "datetime": result = "DateTime"; break;
-                case "bit": result = "bool"; break;
-            }
-            return result;
-        }
-
-
-        public void Excute(string tableName, string tableComment, DataTable source, string filePath)
+        public static void Excute(DbTableMapping table, string filePath)
         {
             filePath = filePath + "Entity/";
-            tableName = GetTableName(tableName);
-            string fileName = filePath + tableName + ".cs";
+            string fileName = filePath + table.ClassName + ".cs";
             StringBuilder sbColumns = new StringBuilder();
             StringBuilder sbTrims = new StringBuilder();
-            foreach (DataRow dr in source.Rows)
+            foreach (var item in table.Columns)
             {
-                string columnName = dr["字段名"].ToString().Trim();
-                string columnType = dr["类型"].ToString().Trim();
-                string columnComment = dr["备注"].ToString().Trim();
-                string newColumnName = GetColumnName(columnName);
-                columnType = GetColumnType(columnType);
-                sbColumns.AppendLine(GetColumnDefinition(newColumnName, columnType, columnComment, columnName));
-                if (columnType == "string")
-                    sbTrims.AppendLine(GetTrimColumn(newColumnName));
+
+                sbColumns.AppendLine(GetColumnDefinition(item));
+                if (item.ColumnType == "string")
+                    sbTrims.AppendLine(GetTrimColumn(item.ColumnName));
             }
-            string content = string.Format(
-                @"using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using Common;
-namespace Entity.LogicModel
-{{
-	/// <summary>
-        /// {1}
-        /// </summary>
- [Serializable]
-    public class {0}
-    {{
-	{2}
+            string tempPath = System.Environment.CurrentDirectory + "/templet/Model.txt";
 
-        public void TrimColumns()
-        {{
-            {3}
-        }}
-    }}
-
-}}", tableName, tableComment, sbColumns.ToString(), sbTrims.ToString());
+            var contentTmp = "";
+            using (StreamReader sr = new StreamReader(tempPath))
+            {
+                contentTmp = sr.ReadToEnd();
+            }
+            string content = string.Format(contentTmp, table.ClassName, table.Comment, sbColumns.ToString(), sbTrims.ToString());
 
             if (!Directory.Exists(filePath))
             {

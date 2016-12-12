@@ -89,6 +89,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateBll.cs" />
+    <Compile Include="CreateDal.cs" />
+    <Compile Include="CreateIDal.cs" />
     <Compile Include="CreateModel.cs" />
     <Compile Include="DataTableHelper.cs" />
     <Compile Include="DbConfig.cs" />
@@ -96,6 +99,8 @@
     <Compile Include="DBConnect\MysqlConnect.cs" />
     <Compile Include="DBConnect\SqlServerConnect.cs" />
     <Compile Include="DBConnect\OracleConnect.cs" />
+    <Compile Include="DbMappingHelper.cs" />
+    <Compile Include="DbTableMapping.cs" />
     <Compile Include="EnvironmentVarUtil.cs" />
     <Compile Include="ExportDataStruct.cs">
       <SubType>Form</SubType>
@@ -127,6 +132,7 @@
     <Compile Include="SerializerHelper.cs" />
     <Compile Include="SqlLocator.cs" />
     <Compile Include="StringExtension.cs" />
+    <Compile Include="CreateIBll.cs" />
     <EmbeddedResource Include="ExportDataStruct.resx">
       <DependentUpon>ExportDataStruct.cs</DependentUpon>
     </EmbeddedResource>

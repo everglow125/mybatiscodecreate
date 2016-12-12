@@ -263,6 +263,7 @@ namespace JavaCodeCreate
 
         private void button1_Click(object sender, EventArgs e)
         {
+            List<DbTableMapping> tableList = new List<DbTableMapping>();
             try
             {
 
@@ -279,11 +280,34 @@ namespace JavaCodeCreate
                 foreach (DataRow item in tables.Rows)
                 {
 
-                    //创建表格对象列数写死了，可根据自己需要改进或者自己想想解决方案
+                    var table = new DbTableMapping();
+                    table.TableName = item["TABLE_NAME"].ToString().Trim();
+                    table.ClassName = table.TableName.ToClassName();
+                    table.Comment = item["comments"].ToString().Trim();
+                    table.Columns = new List<DbColumnMapping>();
                     var columns = db.QueryColumns(conn, item["TABLE_NAME"].ToString(), dbName);
+                    foreach (DataRow col in columns.Rows)
+                    {
+                        var column = new DbColumnMapping();
+                        column.DbColumnName = col["字段名"].ToString().Trim();
+                        column.DBColumnType = col["类型"].ToString().Trim();
+                        column.Comment = col["备注"].ToString().Trim();
+                        column.ColumnName = column.DbColumnName.ToFieldName();
+                        column.ColumnType = column.DBColumnType.ToFieldType();
+                        column.IsPrimeyKey = col["主键"] != DBNull.Value && col["主键"].ToString().ToUpper() == "PRI";
+                        table.Columns.Add(column);
+                    }
+                    table.DbPrimeyKey = table.Columns.Where(x => x.IsPrimeyKey).FirstOrDefault().DbColumnName;
+                    tableList.Add(table);
 
-                    new CreateModel().Excute(item["TABLE_NAME"].ToString(), item["comments"].ToString(), columns, "E:/Entity/");
-
+                }
+                foreach (var item in tableList)
+                {
+                    CreateModel.Excute(item, "E:/Entity/");
+                    CreateIDal.Excute(item, "E:/Entity/");
+                    CreateIBll.Excute(item, "E:/Entity/");
+                    CreateBll.Excute(item, "E:/Entity/");
+                    CreateDal.Excute(item, "E:/Entity/");
                 }
             }
             catch (Exception ex)
