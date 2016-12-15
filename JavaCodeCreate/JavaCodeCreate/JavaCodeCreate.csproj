@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="CreateBll.cs" />
     <Compile Include="CreateDal.cs" />
+    <Compile Include="CreateGlobal.cs" />
     <Compile Include="CreateIDal.cs" />
     <Compile Include="CreateModel.cs" />
     <Compile Include="DataTableHelper.cs" />

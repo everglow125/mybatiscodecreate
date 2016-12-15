@@ -309,6 +309,7 @@ namespace JavaCodeCreate
                     CreateBll.Excute(item, "E:/Entity/");
                     CreateDal.Excute(item, "E:/Entity/");
                 }
+                CreateGlobal.Excute(tableList, "E:/Entity/");
             }
             catch (Exception ex)
             {
